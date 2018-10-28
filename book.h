@@ -15,4 +15,4 @@ struct BOOK
 	char author[30];
 };
 
-
+#endif
