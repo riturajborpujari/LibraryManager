@@ -22,11 +22,13 @@ RECORDS_MANAGER::RECORDS_MANAGER()
 
 	// go to the end of the file 
 	file.seekg(0, ios::end);
-	file.seekp(0, ios::beg);
 	
-	// if end of file is same as begining then there is no book present
-	if(file.tellg() == file.tellp())
+	
+	// if end of file is at position 0, then there is no book present
+	if(file.tellg() == 0)
+	{
 		lastId = 0;
+	}
 
 	// else initialize lastId with the id of the last book in the record
 	else
