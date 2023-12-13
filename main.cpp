@@ -42,13 +42,15 @@ int main()
 			cout << "------------------------------------" << endl;
 
 			library.GetAllBooks(&bookList);
-			for (vector<BOOK>::iterator it = bookList.begin(); it != bookList.end(); it++)
+			for (auto book : bookList)
 			{
-				book = *(it);
 				cout << "Name\t: " << book.name << "\nAuthor\t: " << book.author << "\nID\t: " << book.id << endl;
 				cout << "------------------------------------\n";
 			}
-
+			break;
+		default:
+			cout << "Exiting..." << endl;
+			choice = -1;
 			break;
 		}
 	}
