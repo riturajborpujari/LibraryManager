@@ -13,38 +13,42 @@ int main()
 	vector<BOOK> bookList;
 	unsigned long int id = -1;
 
-	int choice =0;
-	while(choice!= -1)
+	int choice = 0;
+	while (choice != -1)
 	{
-		cout<<"---------------------------------------------------------------"<<endl;
-		cout<<"1(Add), 2(Delete), 3(view all), -1(exit)...Enter your choice...";
-		cin>>choice;
-		
+		cout << "---------------------------------------------------------------" << endl;
+		cout << "1. Add\n2. Delete\n3. View all\n4. Exit\nEnter your choice...";
+		cin >> choice;
+
 		fflush(stdin);
-		switch(choice)
+		switch (choice)
 		{
 		case 1:
-			cout<< "Enter the name of the book...";
+			cout << "Enter the name of the book...";
 			cin.getline(book.name, 60);
-			cout<< "Enter the author of the book...";
+			cout << "Enter the author of the book...";
 			cin.getline(book.author, 30);
-		
+
 			library.AddBook(&book);
 			break;
 		case 2:
-			cout<<"Enter id of the book to be deleted...";
-			cin>>id;
-			cout<<library.DeleteBook(id);
+			cout << "Enter id of the book to be deleted...";
+			cin >> id;
+			cout << library.DeleteBook(id);
 			break;
 		case 3:
+			cout << "------------------------------------" << endl;
+			cout << "All Books" << endl;
+			cout << "------------------------------------" << endl;
+
 			library.GetAllBooks(&bookList);
-			
-			for(vector<BOOK>::iterator it = bookList.begin(); it !=bookList.end(); it++)
+			for (vector<BOOK>::iterator it = bookList.begin(); it != bookList.end(); it++)
 			{
 				book = *(it);
-				cout<<"Name\t: "<<book.name<<"\tAuthor\t: "<<book.author<<" with id : "<<book.id<<endl;
+				cout << "Name\t: " << book.name << "\nAuthor\t: " << book.author << "\nID\t: " << book.id << endl;
+				cout << "------------------------------------\n";
 			}
-			//bookList.clear();
+
 			break;
 		}
 	}
